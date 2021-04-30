@@ -79,14 +79,10 @@ program.parse(process.argv);
         let resultUrl = opt.ext.success ? opt.ext : await zippydamn.extractv2(options.downloadFile)
         let infoUrl = opt.info.success ? opt.info : await zippydamn.infov2(options.downloadFile)
 
-        // console.log(resultUrl.msg)
-
         console.log('[DOWNLOAD]'.cyan)
         console.log(`Title : ${infoUrl.title}`.brightCyan)
         console.log(`Size : ${infoUrl.size} \n`.brightCyan)
         await zippydamn.dl("https://"+resultUrl.msg, infoUrl.title+''+infoUrl.filetype)
-
-    await zippydamn
     
     } else if (options.search) {
         console.log(`[?] Search "${options.search.join(' ')}"`.bgBlue)
@@ -105,9 +101,6 @@ program.parse(process.argv);
                 console.log(pesan)
             })
         }
-
-
-    
     } else {
         console.log('type "zippydamn -h" for help')
     }
